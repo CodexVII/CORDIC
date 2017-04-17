@@ -104,6 +104,10 @@ begin
 			sine_reg = current_y_reg;
 			done_reg = 1;
 		end
+//		$display("Current Angle: %d", current_z_reg);
+		$display("Counter:   %d", counter-1);
+		$display("Current x: %b", current_x_reg);
+		$display("Current y: %b", current_y_reg);
 	end
 end
 

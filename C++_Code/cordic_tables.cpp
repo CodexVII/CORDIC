@@ -1,8 +1,8 @@
 /*
  * cordic_tables.cpp
  *
- *  Created on: 13 Apr 2017
- *      Author: keita
+ * Dylan O' Connor Desmond - 13154117
+ * Ian Lodovica            - 13131567
  */
 
 #include "cordic.h"

@@ -18,13 +18,6 @@ reg signed [1:-16] test_value;
 reg signed [1:-16] expected_sine;
 reg signed [1:-16] expected_cosine;
 
-<<<<<<< HEAD:Verilog_Code/cordic_testbench.v
-CORDIC cordic_module(cosine, sine, done, target_angle, init, clk);
-initial
-    begin
-	$dumpfile("cordic_testbench.vcd");
-	$dumpvars(0, cordic_testbench);
-=======
 assign cosine_diff = (expected_cosine - cosine);
 assign sine_diff = (expected_sine - sine);
 
@@ -51,26 +44,15 @@ initial
 	$display("--------------------------------");
 	$display("Test 2: 1.12 rad");
 	$display("--------------------------------");
->>>>>>> refs/remotes/origin/ian:cordic_testbench.v
 	test_value = 18'b010011001100110011;
 	expected_sine = 18'b001110111010011001;
 	expected_cosine = 18'b000101110011000001;
 	init = 0;
 	target_angle = test_value;
-	#1;
+	#3;
 	init = 1;
-	#2;
+	#10;
 	init = 0;
-<<<<<<< HEAD:Verilog_Code/cordic_testbench.v
-	#30;
-	
-	end
-
-always
-begin
-	#2 clk = ~clk;
-end
-=======
 	#300;
 
 
@@ -91,7 +73,7 @@ end
 
 	// TEST#4: -1.57079 rad
 	$display("--------------------------------");
-	$display("Test 4: -1.57079 rad");
+	$display("Test 3: 1.13097 rad");
 	$display("--------------------------------");
 	test_value = 18'b100110110111100001;
 	expected_sine = 18'b110000000000000011;
@@ -107,7 +89,6 @@ end
 
 always
 	#5 clk = !clk;
->>>>>>> refs/remotes/origin/ian:cordic_testbench.v
 
 endmodule
 

@@ -1,8 +1,8 @@
 /*
  * cordic.h
  *
- *  Created on: 13 Apr 2017
- *      Author: keita
+ * Dylan O' Connor Desmond - 13154117
+ * Ian Lodovica            - 13131567
  */
 
 #ifndef CORDIC_H_
@@ -13,6 +13,7 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
+#include <cmath>
 
 // Basic 2.16 defines
 #define BIT_SIZE 18
@@ -33,5 +34,6 @@
 void printHex(int hex);
 void cordic(int angle, int *sin, int *cos);
 double arrayAverage(double array[], int size);
-
+void runTest(double angle);
+void runTest(double angle, double *sin_diff, double *cos_diff);
 #endif /* CORDIC_H_ */
