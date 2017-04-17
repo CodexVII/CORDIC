@@ -80,14 +80,14 @@ begin
 
 		if(sign_bit == 0)
 		begin
-			next_x_reg = current_x_reg - (current_y_reg >> counter);
-			next_y_reg = current_y_reg + (current_x_reg >> counter);
+			next_x_reg = current_x_reg - (current_y_reg >>> counter);
+			next_y_reg = current_y_reg + (current_x_reg >>> counter);
 			next_z_reg = current_z_reg - atan_table[counter];
 		end
 		else
 		begin
-			next_x_reg = current_x_reg + (current_y_reg >> counter);
-			next_y_reg = current_y_reg - (current_x_reg >> counter);
+			next_x_reg = current_x_reg + (current_y_reg >>> counter);
+			next_y_reg = current_y_reg - (current_x_reg >>> counter);
 			next_z_reg = current_z_reg + atan_table[counter];
 		end
 
@@ -104,7 +104,10 @@ begin
 			sine_reg = current_y_reg;
 			done_reg = 1;
 		end
-		$display("Current Angle: %d", current_z_reg);
+//		$display("Current Angle: %d", current_z_reg);
+		$display("Counter:   %d", counter-1);
+		$display("Current x: %b", current_x_reg);
+		$display("Current y: %b", current_y_reg);
 	end
 end
 

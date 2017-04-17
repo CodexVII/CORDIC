@@ -34,5 +34,6 @@
 void printHex(int hex);
 void cordic(int angle, int *sin, int *cos);
 double arrayAverage(double array[], int size);
-
+void runTest(double angle);
+void runTest(double angle, double *sin_diff, double *cos_diff);
 #endif /* CORDIC_H_ */
