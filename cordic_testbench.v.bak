@@ -15,8 +15,8 @@ wire done;
 
 // Constans
 reg signed [1:-16] test_value;
-reg signed [1:-16] expected_sine;
-reg signed [1:-16] expected_cosine;
+reg [1:-16] expected_sine;
+reg [1:-16] expected_cosine;
 
 assign cosine_diff = (expected_cosine - cosine);
 assign sine_diff = (expected_sine - sine);

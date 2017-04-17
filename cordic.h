@@ -13,6 +13,7 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
+#include <cmath>
 
 // Basic 2.16 defines
 #define BIT_SIZE 18
