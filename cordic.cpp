@@ -149,8 +149,8 @@ void cordic(int angle, int *sine, int *cosine) {
 		curr_z = new_z;
 
 		//debugging
-		cout << bitset<BIT_SIZE>(curr_x) << endl;
-		cout << bitset<BIT_SIZE>(curr_y) << endl;
+		cout << "Current X (cosine): " << bitset<BIT_SIZE>(curr_x) << endl;
+		cout << "Current Y (sine): " << bitset<BIT_SIZE>(curr_y) << endl;
 
 	}
 	// iteration complete. extract sine and cosine values from CORDIC and return
