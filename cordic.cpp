@@ -26,37 +26,37 @@ int main() {
 	cout << "==============================================" << endl;
 	cout << "<< Accuracy Test >> " << endl;
 	cout << "==============================================" << endl;
-	double sin_diff[10] = {0};
-	double cos_diff[10] = {0};
+	double sin_diff[100] = {0};
+	double cos_diff[100] = {0};
 	int increment = 0;
-	for (int i = -5; i < 5; i++) {
+	for (int i = -50; i < 50; i++) {
 		// prepare inputs for CORDIC.
-		float a = (M_PI/2) * (i / 5.0);
+		float a = (M_PI/2) * (i / 50.0);
 		cout << "=================" << endl;
 		cout << "<< ITERATION " << increment << " >>" << endl;
 		cout << "=================" << endl;
 		double iter_sin_diff = 0;
 		double iter_cos_diff = 0;
 		runTest(a, &iter_sin_diff, &iter_cos_diff);
+		sin_diff[i] = iter_sin_diff;
+		cos_diff[i] = iter_cos_diff;
 
 		increment ++;
 	}
 	cout << "==============================================" << endl;
 	cout << "FINAL DIFFERENCE" << endl;
 	cout << "==============================================" << endl;
-	cout << "Cosine average difference: " << arrayAverage(cos_diff, 10)<< endl;
-	cout << "Sine average difference: " << arrayAverage(sin_diff, 10)<< endl;
-	cout << "Cosine average difference: " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(arrayAverage(cos_diff, 10)))<< endl;
-	cout << "Sine average difference: " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(arrayAverage(sin_diff, 10)))<< endl;
+	cout << "Cosine average difference: " << arrayAverage(cos_diff, 100)<< endl;
+	cout << "Sine average difference: " << arrayAverage(sin_diff, 100)<< endl;
+	cout << "Cosine average difference: " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(arrayAverage(cos_diff, 100)))<< endl;
+	cout << "Sine average difference: " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(arrayAverage(sin_diff, 100)))<< endl;
 }
 
 double arrayAverage(double array[], int size){
 	double result = 0;
 	for(int i=0; i<size; i++){
-		cout << array[i] << ",";
 		result += array[i];
 	}
-	cout << endl;
 	return result /=size;
 }
 
@@ -94,7 +94,6 @@ void runTest(double angle, double *sin_diff, double *cos_diff){
 	*sin_diff = abs(sin(angle) - FIXED_TO_FLOAT(sine));
 	*cos_diff = abs(cos(angle) - FIXED_TO_FLOAT(cosine));
 
-	cout << "THIS NEEDS TO HAVE A DIFFERENCE" << abs(cos(angle) - FIXED_TO_FLOAT(cosine));
 	cout << "==========================================" << endl;
 	cout << "Test for angle: " << angle << endl;
 	cout << "==========================================" << endl;
@@ -110,8 +109,8 @@ void runTest(double angle, double *sin_diff, double *cos_diff){
 	cout << "CORDIC Sine:   " << bitset<BIT_SIZE> (sine) << endl;
 	cout << "Actual Cosine: " << bitset<BIT_SIZE> FLOAT_TO_FIXED(cos(angle)) << endl;
 	cout << "CORDIC Cosine: " << bitset<BIT_SIZE> (cosine) << endl;
-	cout << "Sine DIFFERENCE:   " << bitset<BIT_SIZE> FLOAT_TO_FIXED((*sin_diff)) << endl;
-	cout << "Cosine DIFFERENCE: " << bitset<BIT_SIZE> FLOAT_TO_FIXED((*cos_diff)) << endl;
+	cout << "Sine DIFFERENCE:   " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(*sin_diff)) << endl;
+	cout << "Cosine DIFFERENCE: " << bitset<BIT_SIZE> (FLOAT_TO_FIXED(*cos_diff)) << endl;
 }
 
 /**
