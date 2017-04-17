@@ -1,8 +1,8 @@
 /*
  * cordic.cpp
  *
- *  Created on: 13 Apr 2017
- *      Author: keita
+ * Dylan O' Connor Desmond - 13154117
+ * Ian Lodovica            - 13131567
  */
 #include "cordic.h"
 
@@ -17,11 +17,11 @@ int atan_table[] = { 0x0c90f, 0x076b1, 0x03eb6, 0x01fd5, 0x00ffa, 0x007ff,
 using namespace std;
 
 int main() {
-	runTest(0);
-	runTest(M_PI/2);
-	runTest(M_PI/4);
 	runTest(-M_PI/2);
 	runTest(-M_PI/4);
+	runTest(0);
+	runTest(M_PI/4);
+	runTest(M_PI/2);
 
 	cout << "==============================================" << endl;
 	cout << "<< Accuracy Test >> " << endl;
