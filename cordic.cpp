@@ -138,7 +138,7 @@ void cordic(int angle, int *sine, int *cosine) {
 	// begin CORDIC iterations
 	int d;	// Checks sign of current angle.
 	int new_x, new_y, new_z;		// used for new iteration values
-	for (int i = 0; i < BIT_SIZE; i++) {
+	for (int i = 0; i < 15; i++) {
 		d = curr_z >> (BIT_SIZE - 1);// right shift sign bit to LSB to check sign
 
 		// assign new values to x and y components.
