@@ -18,8 +18,6 @@ wire done;
 // Registers for testing
 reg signed [1:-16] expected_cosine;
 reg signed [1:-16] expected_sine;
-reg signed [1:-16] cosine_error;
-reg signed [1:-16] sine_error;
 
 // Plus half pi values
 reg signed [1:-16] half_pi_positive = 18'b01_1001_0010_0010_0000;
@@ -58,34 +56,16 @@ initial
 	target_angle = half_pi_positive;
 	expected_cosine = half_pi_positive_expected_cosine;
 	expected_sine = half_pi_positive_expected_sine;
-	cosine_error = 18'b0;
-	sine_error = 18'b0;
 	#3;
 	init = 1;
 	#10;
 	init = 0;
-	#180;
-	cosine_error = cosine - expected_cosine;
-	sine_error = sine - expected_sine;
-	// Absolute error
-	if(cosine_error < zero)
-	begin
-		// Get 2's complement
-		cosine_error = ~cosine_error + 1;
-	end
-	if(sine_error < zero)
-	begin
-		// Get 2's complement
-		sine_error = ~sine_error + 1;
-	end
+	#300;
 	$display("Expected   sine:  0x%x", expected_sine);
 	$display("CORDIC     sine:  0x%x", sine);
 	$display("Expected cosine:  0x%x", expected_cosine);
 	$display("CORDIC   cosine:  0x%x", cosine);
-	$display("Sine error     :  0x%x", sine_error);
-	$display("Cosine: error  :  0x%x", cosine_error);
 	$display("");
-	#50;
 
 	// Test case 2
 	$display("Test case 2: Input angle = + pi/4");
@@ -96,28 +76,12 @@ initial
 	init = 1;
 	#10;
 	init = 0;
-	#180;
-	cosine_error = cosine - expected_cosine;
-	sine_error = sine - expected_sine;
-	// Absolute error
-	if(cosine_error < zero)
-	begin
-		// Get 2's complement
-		cosine_error = ~cosine_error + 1;
-	end
-	if(sine_error < zero)
-	begin
-		// Get 2's complement
-		sine_error = ~sine_error + 1;
-	end
+	#300;
 	$display("Expected   sine:  0x%x", expected_sine);
 	$display("CORDIC     sine:  0x%x", sine);
 	$display("Expected cosine:  0x%x", expected_cosine);
 	$display("CORDIC   cosine:  0x%x", cosine);
-	$display("Sine error     :  0x%x", sine_error);
-	$display("Cosine: error  :  0x%x", cosine_error);
 	$display("");
-	#50;
 
 	// Test case 3
 	$display("Test case 3: Input angle = 0");
@@ -128,28 +92,12 @@ initial
 	init = 1;
 	#10;
 	init = 0;
-	#180;
-	cosine_error = cosine - expected_cosine;
-	sine_error = sine - expected_sine;
-	// Absolute error
-	if(cosine_error < zero)
-	begin
-		// Get 2's complement
-		cosine_error = ~cosine_error + 1;
-	end
-	if(sine_error < zero)
-	begin
-		// Get 2's complement
-		sine_error = ~sine_error + 1;
-	end
+	#300;
 	$display("Expected   sine:  0x%x", expected_sine);
 	$display("CORDIC     sine:  0x%x", sine);
 	$display("Expected cosine:  0x%x", expected_cosine);
 	$display("CORDIC   cosine:  0x%x", cosine);
-	$display("Sine error     :  0x%x", sine_error);
-	$display("Cosine: error  :  0x%x", cosine_error);
 	$display("");
-	#50;
 
 	// Test case 4
 	$display("Test case 4: Input angle = - pi/4");
@@ -160,28 +108,12 @@ initial
 	init = 1;
 	#10;
 	init = 0;
-	#180;
-	cosine_error = cosine - expected_cosine;
-	sine_error = sine - expected_sine;
-	// Absolute error
-	if(cosine_error < zero)
-	begin
-		// Get 2's complement
-		cosine_error = ~cosine_error + 1;
-	end
-	if(sine_error < zero)
-	begin
-		// Get 2's complement
-		sine_error = ~sine_error + 1;
-	end
+	#300;
 	$display("Expected   sine:  0x%x", expected_sine);
 	$display("CORDIC     sine:  0x%x", sine);
 	$display("Expected cosine:  0x%x", expected_cosine);
 	$display("CORDIC   cosine:  0x%x", cosine);
-	$display("Sine error     :  0x%x", sine_error);
-	$display("Cosine: error  :  0x%x", cosine_error);
 	$display("");
-	#50;
 
 	// Test case 5
 	$display("Test case 5: Input angle = - pi/2");
@@ -192,28 +124,12 @@ initial
 	init = 1;
 	#10;
 	init = 0;
-	#180;
-	cosine_error = cosine - expected_cosine;
-	sine_error = sine - expected_sine;
-	// Absolute error
-	if(cosine_error < zero)
-	begin
-		// Get 2's complement
-		cosine_error = ~cosine_error + 1;
-	end
-	if(sine_error < zero)
-	begin
-		// Get 2's complement
-		sine_error = ~sine_error + 1;
-	end
+	#300;
 	$display("Expected   sine:  0x%x", expected_sine);
 	$display("CORDIC     sine:  0x%x", sine);
 	$display("Expected cosine:  0x%x", expected_cosine);
 	$display("CORDIC   cosine:  0x%x", cosine);
-	$display("Sine error     :  0x%x", sine_error);
-	$display("Cosine: error  :  0x%x", cosine_error);
 	$display("");
-	#50;
 
 	end
 
