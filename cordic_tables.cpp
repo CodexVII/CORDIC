@@ -1,6 +1,9 @@
 /*
  * cordic_tables.cpp
  *
+ * Contains helper functions for hard-coded 2.16 values
+ * used in "cordic.cpp"
+ *
  * Dylan O' Connor Desmond - 13154117
  * Ian Lodovica            - 13131567
  */
